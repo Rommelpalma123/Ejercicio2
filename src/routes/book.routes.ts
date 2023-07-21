@@ -1,10 +1,8 @@
 import { Router } from 'express';
-import { createBook } from '../controllers/book.controllers'
+import { createBook, getAllBooks } from '../controllers/book.controllers'
 
 export const routerBook = Router();
 
 routerBook.post("/createBooks", createBook)
 
-routerBook.get("/allBooks", (req, res) => {
-  res.send("homa")
-})
+routerBook.get("/allBooks", getAllBooks)

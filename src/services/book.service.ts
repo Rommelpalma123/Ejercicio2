@@ -8,5 +8,10 @@ export const BookService = {
       autor: entityBook.autor,
       editorial: entityBook.editorial
     })
+  },
+
+  getAllBooks: async (): Promise<Book[]> => {
+    const books = await Book.find();
+    return books;
   }
 }
