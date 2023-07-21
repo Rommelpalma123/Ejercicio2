@@ -26,5 +26,9 @@ export const BookService = {
 
   updateBook: async (id: string, entityBook: UpdateBook) => {
     return await Book.update(id, entityBook)
+  },
+
+  deleteBook: async (id: string) => {
+    return await Book.delete(id)
   }
 }

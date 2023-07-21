@@ -3,7 +3,8 @@ import {
   createBook,
   getAllBooks,
   getAllBooksByDateAt,
-  updateBook
+  updateBook,
+  deleteBook
 } from "../controllers/book.controllers"
 
 export const routerBook = Router();
@@ -15,3 +16,5 @@ routerBook.get("/allBooks", getAllBooks)
 routerBook.get("/allBooksByDateAt", getAllBooksByDateAt)
 
 routerBook.put("/updateBook/:id", updateBook)
+
+routerBook.delete("/deleteBook/:id", deleteBook)
