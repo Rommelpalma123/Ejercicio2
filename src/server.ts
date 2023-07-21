@@ -2,14 +2,14 @@ import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import 'reflect-metadata'
-import { PORT } from './config/index'
+import { port } from './config/index'
 import { conexionDatabase } from './database/database'
-
+import { routerBook } from "./routes/book.routes"
 export class Server {
   private app
   constructor() {
     this.app = express();
-    //this.routes();
+    this.routes();
     this.listen();
     this.middlewares();
     conexionDatabase();
@@ -17,7 +17,7 @@ export class Server {
   }
 
   private config() {
-    this.app.set("port", PORT)
+    this.app.set("port", port)
   }
 
   private middlewares() {
@@ -26,13 +26,14 @@ export class Server {
     this.app.use(express.json({ limit: "30mb" }))
   }
 
-  /*private routes() {
-    this.app.use("/api/book")
-  }*/
+  private routes() {
+    this.app.use(express.json());
+    this.app.use("/api/book", routerBook);
+  }
 
   public listen(){
     this.app.listen(this.app.get("port"), () => {
-      console.log(`servidor corriendo en el puerto http://localhost:${PORT}`)
+      console.log(`servidor corriendo en el puerto http://localhost:${port}`)
     })
   }
 }

@@ -9,7 +9,7 @@ const AppDaraSource = new DataSource({
   port: 5432,
   database: 'books',
   entities: [ Book ],
-  logging: true,
+  //logging: true,  
   synchronize: true
 })
 

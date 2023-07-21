@@ -7,16 +7,13 @@ import {
   BaseEntity
 } from "typeorm"
 
-@Entity("book")
+@Entity("books")
 export class Book extends BaseEntity {
   @PrimaryGeneratedColumn()
-  id: string
+  id: string;
 
   @Column()
   nombre: string;
-
-  @CreateDateColumn()
-  createdAt: Date;
 
   @Column()
   autor: string;
@@ -26,4 +23,7 @@ export class Book extends BaseEntity {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @CreateDateColumn()
+  createdAt: Date ;
 }
