@@ -6,3 +6,5 @@ export const routerBook = Router();
 routerBook.post("/createBooks", createBook)
 
 routerBook.get("/allBooks", getAllBooks)
+
+routerBook.get("/allBooksByDateAt", getAllBooks)

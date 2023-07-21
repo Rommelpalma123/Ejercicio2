@@ -19,3 +19,12 @@ export const getAllBooks = async (req: Request, res: Response) => {
     throw new Error("Something went wrong getting all books")
   }
 }
+
+export const getAllBooksByDateAt = async (req: Request, res: Response) => {
+  try {
+    const data = await BookService.getAllBooksByDateAt();
+    return res.json(data);
+  } catch (error) {
+    throw new Error("Something went wrong getting all books")
+  }
+}

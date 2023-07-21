@@ -11,7 +11,16 @@ export const BookService = {
   },
 
   getAllBooks: async (): Promise<Book[]> => {
-    const books = await Book.find();
-    return books;
+    const books = await Book.find()
+    return books
+  },
+
+  getAllBooksByDateAt: async (): Promise<Book[]> => {
+    const books = await Book.find({
+      order: {
+        createdAt: "ASC"
+      }
+    })
+    return books
   }
 }
