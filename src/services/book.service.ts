@@ -1,5 +1,5 @@
 import { Book } from "../entities/book"
-import { CreateBook } from "../interfaces/book.interface"
+import { CreateBook, UpdateBook } from "../interfaces/book.interface"
 
 export const BookService = {
   createBook: async (entityBook: CreateBook) => {
@@ -22,5 +22,9 @@ export const BookService = {
       }
     })
     return books
+  },
+
+  updateBook: async (id: string, entityBook: UpdateBook) => {
+    return await Book.update(id, entityBook)
   }
 }
